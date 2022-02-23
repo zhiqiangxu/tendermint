@@ -109,7 +109,7 @@ func (BaseApplication) FinalizeBlock(req RequestFinalizeBlock) ResponseFinalizeB
 		txs[i] = &ResponseDeliverTx{Code: CodeTypeOK}
 	}
 	return ResponseFinalizeBlock{
-		Txs: txs,
+		TxResults: txs,
 	}
 }
 

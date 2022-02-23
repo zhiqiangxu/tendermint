@@ -121,7 +121,7 @@ func (app *Application) FinalizeBlock(req types.RequestFinalizeBlock) types.Resp
 	for i, tx := range req.Txs {
 		txs[i] = app.HandleTx(tx)
 	}
-	return types.ResponseFinalizeBlock{Txs: txs}
+	return types.ResponseFinalizeBlock{TxResults: txs}
 }
 
 func (app *Application) CheckTx(req types.RequestCheckTx) types.ResponseCheckTx {

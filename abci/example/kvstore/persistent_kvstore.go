@@ -150,7 +150,7 @@ func (app *PersistentKVStoreApplication) FinalizeBlock(req types.RequestFinalize
 		respTxs[i] = app.HandleTx(tx)
 	}
 
-	return types.ResponseFinalizeBlock{Txs: respTxs, ValidatorUpdates: app.ValUpdates}
+	return types.ResponseFinalizeBlock{TxResults: respTxs, ValidatorUpdates: app.ValUpdates}
 }
 
 func (app *PersistentKVStoreApplication) ListSnapshots(
