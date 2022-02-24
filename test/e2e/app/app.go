@@ -159,7 +159,7 @@ func (app *Application) FinalizeBlock(req abci.RequestFinalizeBlock) abci.Respon
 		txs[i] = &abci.ExecTxResult{Code: code.CodeTypeOK}
 	}
 
-	valUpdates, err := app.validatorUpdates(uint64(req.Height))
+	valUpdates, err := app.validatorUpdates(uint64(req.Header.Height))
 	if err != nil {
 		panic(err)
 	}
@@ -177,7 +177,7 @@ func (app *Application) FinalizeBlock(req abci.RequestFinalizeBlock) abci.Respon
 					},
 					{
 						Key:   "height",
-						Value: strconv.Itoa(int(req.Height)),
+						Value: strconv.Itoa(int(req.Header.Height)),
 					},
 				},
 			},
